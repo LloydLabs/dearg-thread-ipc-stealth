@@ -1,5 +1,26 @@
 # 🕵️ dearg-thread-ipc-stealth
 
+## Usage
+There are two main exported methods, one to read from another thread, and another to serve the content to another thread. All of the methods return a `DEARG_STATUS`, and set by the upon operation success or failure. Further examples follow within this README.
+
+```C
+DEARG_STATUS
+dearg_read(
+	_In_ HANDLE hThread,
+	_Out_ PDEARG_HEADER pHdr,
+	_Out_ PBYTE pbDataOut
+);
+
+DEARG_STATUS
+dearg_serve(
+	_In_ HANDLE hThread,
+	_In_ DEARG_FLAGS dFlags,
+	_In_ PDEARG_HEADER pHdr,
+	_In_ PBYTE pbBuffer,
+	_In_ UINT16 u16Len
+);
+```
+
 ## Introduction
 Whilst playing with a Cobalt Strike beacon, I was thinking of ways that the artefact kit could be improved on in terms of IPC ("Inter-Process Communication"). The de facto standard is usually to use named pipes, usually as a way to read shellcode from inside a process we've injected into.
 
