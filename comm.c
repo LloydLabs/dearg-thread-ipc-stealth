@@ -11,7 +11,8 @@ dearg_find_delimiter(
 	BYTE bDelimiter[] = { 0x00, 0x00 };
 	UINT16 uDelSize = sizeof(bDelimiter);
 
-	if (uDelSize > u16Len) {
+	if (uDelSize > u16Len)
+	{
 		return FALSE;
 	}
 
@@ -73,8 +74,8 @@ dearg_init_hdr(
 	}
 
 	RtlSecureZeroMemory(pHdr, sizeof(DEARG_HEADER));
-
 	pHdr->dwMagic = DEARG_HEADER_MAGIC;
+	
 	return TRUE;
 }
 
@@ -200,9 +201,13 @@ dearg_read(
 	for (UINT16 i = 0; i < dHdr.u16Len; i++)
 	{
 		if (dHdr.bKey != DEARG_NO_KEY)
+		{
 			pbDataOut[i] = pbData[i] ^ dHdr.bKey;
+		}
 		else
+		{
 			pbDataOut[i] = pbData[i];
+		}
 	}
 
 	return DSERVE_OK;
