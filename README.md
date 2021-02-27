@@ -22,7 +22,7 @@ dearg_serve(
 ```
 
 ## Introduction
-Whilst playing with a Cobalt Strike beacon, I was thinking of ways that the artefact kit could be improved on in terms of IPC ("Inter-Process Communication"). The de facto standard is usually to use named pipes, usually as a way to read shellcode from inside a process we've injected into.
+Whilst playing with a Cobalt Strike beacon, I was thinking of ways that the artifact kit could be improved on in terms of IPC ("Inter-Process Communication"). The de facto standard is usually to use named pipes, usually as a way to read shellcode from inside a process we've injected into.
 
 The new communication method won't be observable by existing tools - the unusual IPC channel used will evade logging and audit/alarm based triggers. 
 
